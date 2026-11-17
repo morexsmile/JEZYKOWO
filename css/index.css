@@ -1740,3 +1740,13 @@ img {
     background: rgba(50, 200, 232, 0.1);
     transform: translateY(-4px);
 }
+
+.footer-socials a i {
+    font-size: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover i {
+    transform: scale(1.15);
+}
