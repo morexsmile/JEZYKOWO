@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Językowo – odkrywaj nowe języki, rozwijaj umiejętności i poznawaj świat. Twoja językowa podróż zaczyna się tutaj.">
+    <meta name="theme-color" content="#090B20">
+
+    <meta property="og:title" content="Językowo – Odkryj wszechświat języków">
+    <meta property="og:description" content="Każdy język to nowy świat. Odkryj go z Językowo.">
+    <meta property="og:type" content="website">
+
+    <title>Językowo – Odkryj wszechświat języków</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js" defer></script>
+</head>
+
+<body>
+
+    <!-- COSMIC BACKGROUND -->
+
+    <div class="cosmic-background" aria-hidden="true">
+        <div class="stars stars-small"></div>
+        <div class="stars stars-medium"></div>
+        <div class="stars stars-large"></div>
+        <div class="nebula nebula-one"></div>
+        <div class="nebula nebula-two"></div>
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header" id="top">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo" aria-label="Językowo – strona główna">
+                <span class="logo-symbol" aria-hidden="true">✦</span>
+                <span class="logo-name">językowo<span>.</span></span>
+            </a>
+
+            <nav class="main-navigation" id="main-navigation" aria-label="Menu główne">
+                <a href="#jezyki" class="nav-link">Języki</a>
+                <a href="#nauka" class="nav-link">Jak się uczymy?</a>
+                <a href="#platforma" class="nav-link">Platforma</a>
+                <a href="#o-nas" class="nav-link">O nas</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="pages/login.html" class="login-link">Zaloguj się</a>
+
+                <a href="pages/register.html" class="btn btn-primary btn-header">
+                    Rozpocznij naukę <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+            <button
+                class="mobile-menu-toggle"
+                type="button"
+                aria-label="Otwórz menu"
+                aria-expanded="false"
+                aria-controls="mobile-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+        <nav class="mobile-navigation" id="mobile-navigation" aria-label="Menu mobilne" hidden>
+            <a href="#jezyki">Języki</a>
+            <a href="#nauka">Jak się uczymy?</a>
+            <a href="#platforma">Platforma</a>
+            <a href="#o-nas">O nas</a>
+
+            <div class="mobile-navigation-actions">
+                <a href="pages/login.html">Zaloguj się</a>
+                <a href="pages/register.html" class="btn btn-primary">Rozpocznij naukę</a>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero-section" id="hero">
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <div class="hero-eyebrow">
+                        <span class="eyebrow-star">✦</span>
+                        TWOJA PODRÓŻ ZACZYNA SIĘ TUTAJ
+                    </div>
+
+                    <h1>
+                        Odkryj
+                        <span class="gradient-text">wszechświat</span>
+                        języków.
+                    </h1>
+
+                    <p class="hero-description">
+                        Każdy język to nowy świat. Odkrywaj nowe możliwości,
+                        poznawaj kultury i rozwijaj swoje umiejętności.
+                        Twoja językowa podróż zaczyna się z Językowo.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#jezyki" class="btn btn-primary btn-large">
+                            Odkryj języki <span>→</span>
+                        </a>
+
+                        <a href="#nauka" class="btn btn-secondary btn-large">
+                            Poznaj platformę
+                        </a>
+                    </div>
+
+                    <div class="hero-social-proof">
+                        <div class="hero-proof-icon" aria-hidden="true">✧</div>
+
+                        <p>
+                            <strong>Twój świat. Twoje tempo.</strong>
+                            <span>Nauka języków na Twoich zasadach.</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="hero-visual">
+
+                    <div class="hero-orbit orbit-outer"></div>
+                    <div class="hero-orbit orbit-middle"></div>
+                    <div class="hero-orbit orbit-inner"></div>
+
+                    <div class="hero-planet hero-planet-one" aria-hidden="true">EN</div>
+                    <div class="hero-planet hero-planet-two" aria-hidden="true">ES</div>
+                    <div class="hero-planet hero-planet-three" aria-hidden="true">FR</div>
+
+                    <div class="hero-galaxy">
+                        <img
+                            src="assets/images/galaxy-hero.png"
+                            alt="Kolorowa galaktyka pełna gwiazd"
+                            fetchpriority="high"
+                        >
+                    </div>
+
+                    <div class="floating-language floating-language-one">
+                        <span>🇬🇧</span><span>English</span>
+                    </div>
+
+                    <div class="floating-language floating-language-two">
+                        <span>🇪🇸</span><span>Español</span>
+                    </div>
+
+                    <div class="floating-language floating-language-three">
+                        <span>🇫🇷</span><span>Français</span>
+                    </div>
+
+                    <div class="hero-glow"></div>
+
+                </div>
+
+            </div>
+
+            <a href="#jezyki" class="scroll-indicator" aria-label="Przewiń do wyboru języków">
+                <span>Odkrywaj dalej</span>
+                <span class="scroll-arrow">↓</span>
+            </a>
+
+        </section>
+
+
+        <!-- LANGUAGE PLANETS -->
+
+        <section class="languages-section section-padding" id="jezyki">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        <span>✦</span> ODKRYJ SWOJĄ GALAKTYKĘ
+                    </span>
+
+                    <h2>
+                        Wybierz swój
+                        <span class="gradient-text">świat języków.</span>
+                    </h2>
+
+                    <p>
+                        Każda planeta to nowy język, nowa kultura
+                        i nowe możliwości. Którą odkryjesz jako pierwszą?
+                    </p>
+
+                </div>
+
+
+                <div class="language-universe">
+
+                    <div class="universe-stars" aria-hidden="true"></div>
+
+                    <!-- ENGLISH PLANET -->
+
+                    <a href="pages/languages.html?language=english"
+                       class="planet-item planet-english"
+                       aria-label="Odkryj język angielski">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-blue">
+                                <span class="planet-flag" role="img" aria-label="Flaga Wielkiej Brytanii">🇬🇧</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Angielski</h3>
+                            <span>English</span>
+                            <small>Odkryj możliwości</small>
+                        </div>
+
+                    </a>
+
+
+                    <!-- SPANISH PLANET -->
+
+                    <a href="pages/languages.html?language=spanish"
+                       class="planet-item planet-spanish"
+                       aria-label="Odkryj język hiszpański">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-orange">
+                                <span class="planet-flag" role="img" aria-label="Flaga Hiszpanii">🇪🇸</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Hiszpański</h3>
+                            <span>Español</span>
+                            <small>Poczuj energię języka</small>
+                        </div>
+
+                    </a>
+
+
+                    <!-- FRENCH PLANET -->
+
+                    <a href="pages/languages.html?language=french"
+                       class="planet-item planet-french"
+                       aria-label="Odkryj język francuski">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-pink">
+                                <span class="planet-flag" role="img" aria-label="Flaga Francji">🇫🇷</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Francuski</h3>
+                            <span>Français</span>
+                            <small>Odkryj świat elegancji</small>
+                        </div>
+
+                    </a>
+
+
+                    <!-- GERMAN PLANET -->
+
+                    <a href="pages/languages.html?language=german"
+                       class="planet-item planet-german"
+                       aria-label="Odkryj język niemiecki">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-purple">
+                                <span class="planet-flag" role="img" aria-label="Flaga Niemiec">🇩🇪</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Niemiecki</h3>
+                            <span>Deutsch</span>
+                            <small>Rozwijaj nowe perspektywy</small>
+                        </div>
+
+                    </a>
+
+
+                    <!-- ITALIAN PLANET -->
+
+                    <a href="pages/languages.html?language=italian"
+                       class="planet-item planet-italian"
+                       aria-label="Odkryj język włoski">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-green">
+                                <span class="planet-flag" role="img" aria-label="Flaga Włoch">🇮🇹</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Włoski</h3>
+                            <span>Italiano</span>
+                            <small>Poznaj kulturę i piękno</small>
+                        </div>
+
+                    </a>
+
+
+                    <!-- PORTUGUESE PLANET -->
+
+                    <a href="pages/languages.html?language=portuguese"
+                       class="planet-item planet-portuguese"
+                       aria-label="Odkryj język portugalski">
+
+                        <div class="planet-orbit">
+                            <div class="planet planet-cyan">
+                                <span class="planet-flag" role="img" aria-label="Flaga Portugalii">🇵🇹</span>
+                            </div>
+                        </div>
+
+                        <div class="planet-info">
+                            <h3>Portugalski</h3>
+                            <span>Português</span>
+                            <small>Otwórz nowe horyzonty</small>
+                        </div>
+
+                    </a>
+
+                </div>
+
+                <div class="universe-caption">
+                    <span>✦</span>
+                    WYBIERZ PLANETĘ I ROZPOCZNIJ SWOJĄ PODRÓŻ
+                    <span>✦</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEARNING METHODS -->
+
+        <section class="learning-section section-padding" id="nauka">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-eyebrow">✦ TWOJA MISJA</span>
+
+                    <h2>
+                        Ucz się po swojemu.
+                        <span class="gradient-text">Odkrywaj więcej.</span>
+                    </h2>
+
+                    <p>
+                        Skuteczna nauka to coś więcej niż zapamiętywanie słówek.
+                        Odkrywaj język na różne sposoby.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+
+                    <article class="learning-card">
+                        <div class="learning-icon icon-vocabulary">✧</div>
+                        <h3>Słownictwo</h3>
+                        <p>Poznawaj nowe słowa i wyrażenia, które wykorzystasz w codziennych sytuacjach.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="learning-icon icon-listening">♫</div>
+                        <h3>Słuchanie</h3>
+                        <p>Ćwicz rozumienie ze słuchu i oswajaj się z naturalnym brzmieniem języka.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="learning-icon icon-speaking">✦</div>
+                        <h3>Mówienie</h3>
+                        <p>Rozwijaj swobodę wypowiedzi i nabieraj pewności w komunikacji.</p>
+                    </article>
+
+                    <article class="learning-card">
+                        <div class="learning-icon icon-quiz">◎</div>
+                        <h3>Quizy i ćwiczenia</h3>
+                        <p>Sprawdzaj swoją wiedzę, rozwiązuj zadania i utrwalaj zdobyte umiejętności.</p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEARNING JOURNEY -->
+
+        <section class="journey-section section-padding" id="platforma">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-eyebrow">✦ TWOJA JĘZYKOWA PODRÓŻ</span>
+
+                    <h2>
+                        Małe kroki.
+                        <span class="gradient-text">Wielkie odkrycia.</span>
+                    </h2>
+
+                    <p>
+                        Każda wielka podróż zaczyna się od pierwszego kroku.
+                        Z Językowo wiesz, dokąd zmierzasz.
+                    </p>
+                </div>
+
+                <div class="journey-grid">
+
+                    <article class="journey-card">
+                        <span class="journey-number">01</span>
+                        <div class="journey-icon">🌌</div>
+                        <h3>Wybierz język</h3>
+                        <p>Znajdź język, który najbardziej Cię inspiruje.</p>
+                    </article>
+
+                    <article class="journey-card">
+                        <span class="journey-number">02</span>
+                        <div class="journey-icon">🪐</div>
+                        <h3>Rozpocznij naukę</h3>
+                        <p>Odkrywaj lekcje, ćwiczenia i nowe słownictwo.</p>
+                    </article>
+
+                    <article class="journey-card">
+                        <span class="journey-number">03</span>
+                        <div class="journey-icon">✨</div>
+                        <h3>Rozwijaj umiejętności</h3>
+                        <p>Obserwuj postępy i zdobywaj kolejne poziomy.</p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about-section section-padding" id="o-nas">
+
+            <div class="container about-container">
+
+                <div class="about-visual">
+                    <div class="about-orbit about-orbit-one"></div>
+                    <div class="about-orbit about-orbit-two"></div>
+                    <div class="about-planet"><span>✦</span></div>
+                    <div class="about-floating-star star-one">✧</div>
+                    <div class="about-floating-star star-two">✦</div>
+                    <div class="about-floating-star star-three">✧</div>
+                </div>
+
+                <div class="about-content">
+
+                    <span class="section-eyebrow">✦ POZNAJ JĘZYKOWO</span>
+
+                    <h2>
+                        Granice istnieją tylko po to, by je
+                        <span class="gradient-text">przekraczać.</span>
+                    </h2>
+
+                    <p>
+                        Wierzymy, że znajomość języków otwiera drzwi
+                        do nowych kultur, relacji i możliwości.
+                        Dlatego tworzymy przestrzeń, w której nauka
+                        staje się inspirującą podróżą.
+                    </p>
+
+                    <p>
+                        Niezależnie od tego, czy zaczynasz od podstaw,
+                        czy rozwijasz już zdobyte umiejętności —
+                        w Językowo znajdziesz przestrzeń do rozwoju.
+                    </p>
+
+                    <a href="pages/about.html" class="btn btn-secondary">
+                        Poznaj nas bliżej <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+
+        <section class="cta-section section-padding">
+
+            <div class="container">
+
+                <div class="cta-card">
+
+                    <div class="cta-stars" aria-hidden="true">✦　✧　✦</div>
+
+                    <span class="section-eyebrow">TWOJA PODRÓŻ CZEKA</span>
+
+                    <h2>
+                        Twój następny świat
+                        <span class="gradient-text">już czeka.</span>
+                    </h2>
+
+                    <p>
+                        Nie odkładaj swoich marzeń na później.
+                        Wybierz język i zrób pierwszy krok już dziś.
+                    </p>
+
+                    <a href="pages/register.html" class="btn btn-primary btn-large">
+                        Rozpocznij swoją podróż <span>→</span>
+                    </a>
+
+                    <div class="cta-glow" aria-hidden="true"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-symbol">✦</span>
+                    <span class="logo-name">językowo<span>.</span></span>
+                </a>
+
+                <p>
+                    Każdy język to nowy świat.
+                    Odkryj go z Językowo.
+                </p>
+
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram Językowo">Instagram</a>
+                    <a href="#" aria-label="Facebook Językowo">Facebook</a>
+                </div>
+
+            </div>
+
+            <div class="footer-column">
+                <h3>Odkrywaj</h3>
+                <a href="#jezyki">Języki</a>
+                <a href="pages/courses.html">Kursy</a>
+                <a href="#nauka">Metody nauki</a>
+                <a href="#platforma">Platforma</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Językowo</h3>
+                <a href="pages/about.html">O nas</a>
+                <a href="pages/contact.html">Kontakt</a>
+                <a href="pages/login.html">Zaloguj się</a>
+                <a href="pages/register.html">Dołącz do nas</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Informacje</h3>
+                <a href="pages/privacy.html">Polityka prywatności</a>
+                <a href="pages/terms.html">Regulamin</a>
+                <a href="pages/faq.html">FAQ</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <p>© 2026 Językowo. Wszelkie prawa zastrzeżone.</p>
+                <p>Stworzone z pasji do języków. <span>✦</span></p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
