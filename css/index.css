@@ -1469,3 +1469,206 @@ img {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =========================================================
+   LANGUAGE PLANETS — FLAG COLORS & 3x2 GRID
+   Add at the END of css/index.css
+   ========================================================= */
+
+/* Exactly 3 planets per row */
+
+.language-universe {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    justify-content: center;
+    align-items: center;
+    column-gap: clamp(45px, 9vw, 130px);
+    row-gap: 65px;
+    padding: 75px 30px;
+}
+
+/* Planet base */
+
+.planet {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow:
+        inset -15px -15px 25px rgba(0,0,0,0.35),
+        inset 6px 6px 15px rgba(255,255,255,0.28),
+        0 0 30px rgba(255,255,255,0.12);
+}
+
+/* Remove previous planet surface */
+
+.planet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.5), transparent 35%),
+        linear-gradient(145deg, transparent 35%, rgba(0,0,0,0.3));
+}
+
+/* ENGLISH — United Kingdom flag colors */
+
+.planet-blue {
+    background:
+        linear-gradient(35deg, transparent 38%, #ffffff 38% 45%, #c8102e 45% 53%, #ffffff 53% 60%, transparent 60%),
+        linear-gradient(-35deg, transparent 38%, #ffffff 38% 45%, #c8102e 45% 53%, #ffffff 53% 60%, transparent 60%),
+        #012169;
+}
+
+/* SPANISH — Spain flag colors */
+
+.planet-orange {
+    background:
+        linear-gradient(
+            to bottom,
+            #aa151b 0%,
+            #aa151b 25%,
+            #f1bf00 25%,
+            #f1bf00 75%,
+            #aa151b 75%,
+            #aa151b 100%
+        );
+}
+
+/* FRENCH — France flag colors */
+
+.planet-pink {
+    background:
+        linear-gradient(
+            to right,
+            #0055a4 0%,
+            #0055a4 33.33%,
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+            #ef4135 66.66%,
+            #ef4135 100%
+        );
+}
+
+/* GERMAN — Germany flag colors */
+
+.planet-purple {
+    background:
+        linear-gradient(
+            to bottom,
+            #111111 0%,
+            #111111 33.33%,
+            #dd0000 33.33%,
+            #dd0000 66.66%,
+            #ffce00 66.66%,
+            #ffce00 100%
+        );
+}
+
+/* ITALIAN — Italy flag colors */
+
+.planet-green {
+    background:
+        linear-gradient(
+            to right,
+            #009246 0%,
+            #009246 33.33%,
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+            #ce2b37 66.66%,
+            #ce2b37 100%
+        );
+}
+
+/* PORTUGUESE — Portugal flag colors */
+
+.planet-cyan {
+    background:
+        linear-gradient(
+            to right,
+            #006600 0%,
+            #006600 40%,
+            #ff0000 40%,
+            #ff0000 100%
+        );
+}
+
+/* Flag emoji in the center */
+
+.planet-flag {
+    position: relative;
+    z-index: 3;
+    font-size: 42px;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.45));
+}
+
+/* Planet hover */
+
+.planet-item:hover .planet {
+    transform: scale(1.13) rotate(5deg);
+    box-shadow:
+        inset -15px -15px 25px rgba(0,0,0,0.3),
+        0 0 45px rgba(255,255,255,0.25);
+}
+
+/* Tablet */
+
+@media (max-width: 760px) {
+    .language-universe {
+        grid-template-columns: repeat(3, minmax(85px, 120px));
+        column-gap: 20px;
+        row-gap: 45px;
+        padding: 55px 12px;
+    }
+
+    .planet-item {
+        width: 100%;
+    }
+
+    .planet {
+        width: 100px;
+        height: 100px;
+    }
+
+    .planet-orbit {
+        width: 135px;
+        height: 55px;
+    }
+
+    .planet-flag {
+        font-size: 34px;
+    }
+}
+
+/* Small phones */
+
+@media (max-width: 380px) {
+    .language-universe {
+        column-gap: 8px;
+        row-gap: 38px;
+        padding-inline: 5px;
+    }
+
+    .planet {
+        width: 85px;
+        height: 85px;
+    }
+
+    .planet-orbit {
+        width: 115px;
+        height: 48px;
+    }
+
+    .planet-flag {
+        font-size: 29px;
+    }
+
+    .planet-info strong {
+        font-size: 13px;
+    }
+}
+
