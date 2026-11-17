@@ -1,52 +1,24 @@
-
-/* =========================================================
-   JĘZYKOWO — MAIN STYLESHEET
-   File: css/index.css
-   Theme: Deep Cosmic
-========================================================= */
-
-/* =========================
-   1. RESET & VARIABLES
-========================= */
-
+/* JĘZYKOWO */
+/* 01. ROOT & RESET */
 :root {
-    --color-space: #090b20;
-    --color-space-light: #10132e;
-    --color-space-card: rgba(20, 24, 55, 0.72);
-
-    --color-purple: #7139c9;
-    --color-purple-light: #a77aff;
-    --color-cyan: #32c8e8;
-    --color-pink: #ec79c7;
-    --color-white: #ffffff;
-    --color-text: #e8e9f7;
-    --color-muted: #a5a8c5;
-
-    --font-heading: "Outfit", sans-serif;
-    --font-body: "DM Sans", sans-serif;
-
-    --gradient-main: linear-gradient(
-        110deg,
-        #a77aff 0%,
-        #ec79c7 50%,
-        #32c8e8 100%
-    );
-
-    --gradient-button: linear-gradient(
-        110deg,
-        #7139c9,
-        #a34fd0
-    );
-
-    --container-width: 1200px;
-    --header-height: 88px;
-
-    --transition: 0.3s ease;
-    --transition-slow: 0.6s ease;
-
-    --radius-small: 12px;
-    --radius-medium: 20px;
-    --radius-large: 30px;
+    --space: #090b20;
+    --space-light: #10132e;
+    --space-card: rgba(22, 25, 58, 0.72);
+    --purple: #7139c9;
+    --purple-light: #a879ff;
+    --cyan: #32c8e8;
+    --pink: #ec79c7;
+    --lavender: #bca5ff;
+    --white: #ffffff;
+    --text: #e9e8fa;
+    --muted: #aaa9c7;
+    --border: rgba(255, 255, 255, 0.12);
+    --glass: rgba(255, 255, 255, 0.055);
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --container: 1200px;
+    --radius: 22px;
+    --transition: 0.35s ease;
 }
 
 * {
@@ -61,25 +33,11 @@ html {
 }
 
 body {
-    min-width: 320px;
+    font-family: var(--font-body);
+    background: var(--space);
+    color: var(--text);
     overflow-x: hidden;
-    background: var(--color-space);
-    color: var(--color-text);
-    font-family: var(--font-body);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-}
-
-body,
-button,
-input,
-textarea {
-    font-family: var(--font-body);
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
+    line-height: 1.6;
 }
 
 a {
@@ -88,7 +46,7 @@ a {
 }
 
 button {
-    border: none;
+    font: inherit;
 }
 
 img {
@@ -96,17 +54,8 @@ img {
     max-width: 100%;
 }
 
-ul {
-    list-style: none;
-}
-
-::selection {
-    background: rgba(167, 122, 255, 0.4);
-    color: #ffffff;
-}
-
 .container {
-    width: min(var(--container-width), calc(100% - 48px));
+    width: min(90%, var(--container));
     margin-inline: auto;
 }
 
@@ -114,110 +63,95 @@ ul {
     padding: 110px 0;
 }
 
+::selection {
+    background: var(--purple);
+    color: white;
+}
 
-/* =========================
-   2. COSMIC BACKGROUND
-========================= */
+
+/* COSMIC BACKGROUND */
 
 .cosmic-background {
     position: fixed;
     inset: 0;
-    z-index: -2;
     overflow: hidden;
     pointer-events: none;
+    z-index: -2;
     background:
-        radial-gradient(
-            ellipse at 15% 20%,
-            rgba(91, 43, 153, 0.18),
-            transparent 38%
-        ),
-        radial-gradient(
-            ellipse at 85% 65%,
-            rgba(28, 117, 161, 0.12),
-            transparent 35%
-        ),
-        var(--color-space);
+        radial-gradient(ellipse at 15% 20%, rgba(82, 38, 157, 0.16), transparent 38%),
+        radial-gradient(ellipse at 85% 60%, rgba(30, 120, 170, 0.12), transparent 40%),
+        var(--space);
 }
 
 .stars {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     background-repeat: repeat;
 }
 
 .stars-small {
-    opacity: 0.45;
+    opacity: 0.55;
     background-image:
-        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-        radial-gradient(1px 1px at 80px 90px, #fff, transparent),
-        radial-gradient(1px 1px at 150px 40px, #fff, transparent),
-        radial-gradient(1px 1px at 220px 130px, #fff, transparent),
-        radial-gradient(1px 1px at 290px 70px, #fff, transparent);
-    background-size: 320px 180px;
-    animation: stars-drift 100s linear infinite;
+        radial-gradient(1px 1px at 20px 30px, white 100%, transparent),
+        radial-gradient(1px 1px at 90px 100px, white 100%, transparent),
+        radial-gradient(1px 1px at 160px 50px, white 100%, transparent);
+    background-size: 200px 180px;
 }
 
 .stars-medium {
-    opacity: 0.35;
+    opacity: 0.45;
     background-image:
-        radial-gradient(1.5px 1.5px at 40px 70px, #c9baff, transparent),
-        radial-gradient(1.5px 1.5px at 180px 120px, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 260px 30px, #8beaff, transparent);
-    background-size: 350px 210px;
-    animation: stars-drift 140s linear infinite reverse;
+        radial-gradient(1.5px 1.5px at 60px 80px, #bca5ff 100%, transparent),
+        radial-gradient(1.5px 1.5px at 180px 30px, white 100%, transparent);
+    background-size: 250px 220px;
 }
 
 .stars-large {
-    opacity: 0.45;
+    opacity: 0.4;
     background-image:
-        radial-gradient(2px 2px at 90px 60px, #fff, transparent),
-        radial-gradient(2px 2px at 250px 160px, #d9c6ff, transparent);
-    background-size: 420px 250px;
-    animation: stars-twinkle 5s ease-in-out infinite alternate;
+        radial-gradient(2px 2px at 100px 120px, white 100%, transparent),
+        radial-gradient(2px 2px at 220px 60px, #ec79c7 100%, transparent);
+    background-size: 320px 260px;
 }
 
 .nebula {
     position: absolute;
-    width: 650px;
-    height: 650px;
     border-radius: 50%;
-    filter: blur(110px);
-    opacity: 0.13;
+    filter: blur(100px);
+    opacity: 0.17;
 }
 
 .nebula-one {
-    top: -250px;
-    left: -220px;
-    background: #7437c7;
+    width: 500px;
+    height: 500px;
+    background: var(--purple);
+    top: 10%;
+    left: -200px;
 }
 
 .nebula-two {
-    right: -250px;
-    bottom: -250px;
-    background: #146b9a;
+    width: 450px;
+    height: 450px;
+    background: #087cba;
+    bottom: 5%;
+    right: -180px;
 }
 
 
-/* =========================
-   3. HEADER & NAVIGATION
-========================= */
+/* 03. HEADER
+========================================================= */
 
 .site-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    width: 100%;
-    height: var(--header-height);
+    z-index: 100;
     background: rgba(9, 11, 32, 0.78);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 }
 
 .header-container {
-    height: 100%;
+    min-height: 82px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -232,61 +166,40 @@ ul {
 }
 
 .logo-symbol {
-    width: 42px;
-    height: 42px;
+    width: 39px;
+    height: 39px;
     display: grid;
     place-items: center;
-    border-radius: 14px;
-    color: white;
+    border-radius: 50%;
     font-size: 22px;
-    background: linear-gradient(135deg, #7139c9, #32c8e8);
-    box-shadow: 0 0 22px rgba(113, 57, 201, 0.4);
+    color: white;
+    background: linear-gradient(135deg, var(--purple), var(--cyan));
+    box-shadow: 0 0 22px rgba(113, 57, 201, 0.5);
 }
 
 .logo-name {
-    color: var(--color-white);
     font-family: var(--font-heading);
     font-size: 25px;
     font-weight: 700;
     letter-spacing: -1px;
-}
-
-.logo-name span {
-    color: var(--color-cyan);
+    color: white;
 }
 
 .main-navigation {
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: 30px;
 }
 
 .nav-link {
-    position: relative;
-    color: var(--color-muted);
     font-size: 14px;
-    font-weight: 500;
-    transition: color var(--transition);
+    color: var(--muted);
+    transition: var(--transition);
 }
 
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--gradient-main);
-    transition: width var(--transition);
-}
-
-.nav-link:hover {
-    color: var(--color-white);
-}
-
-.nav-link:hover::after {
-    width: 100%;
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--cyan);
 }
 
 .header-actions {
@@ -296,132 +209,92 @@ ul {
 }
 
 .login-link {
-    color: var(--color-text);
+    color: var(--text);
     font-size: 14px;
-    font-weight: 600;
-    transition: color var(--transition);
+    transition: var(--transition);
 }
 
 .login-link:hover {
-    color: var(--color-cyan);
+    color: var(--cyan);
 }
 
 
-/* =========================
-   4. BUTTONS
-========================= */
+/* 04. BUTTONS
+========================================================= */
 
 .btn {
-    min-height: 48px;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 9px;
-    padding: 12px 24px;
     border: 1px solid transparent;
     border-radius: 50px;
+    padding: 12px 24px;
+    font-weight: 600;
     font-size: 14px;
-    font-weight: 700;
     cursor: pointer;
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        background var(--transition),
-        border-color var(--transition);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
+    transition: var(--transition);
 }
 
 .btn-primary {
-    color: #ffffff;
-    background: var(--gradient-button);
-    box-shadow: 0 8px 25px rgba(113, 57, 201, 0.3);
+    color: white;
+    background: linear-gradient(110deg, #7139c9, #a34bd6);
+    box-shadow: 0 8px 28px rgba(113, 57, 201, 0.28);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 12px 32px rgba(113, 57, 201, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(113, 57, 201, 0.5);
 }
 
 .btn-secondary {
-    color: var(--color-white);
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border);
 }
 
 .btn-secondary:hover {
-    border-color: var(--color-cyan);
-    background: rgba(50, 200, 232, 0.08);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--cyan);
 }
 
 .btn-header {
-    min-height: 42px;
-    padding: 9px 20px;
-    font-size: 13px;
+    padding: 10px 21px;
 }
 
 .btn-large {
-    min-height: 56px;
-    padding: 15px 30px;
+    padding: 15px 29px;
     font-size: 15px;
 }
 
-
-/* =========================
-   5. MOBILE NAVIGATION
-========================= */
-
-.mobile-menu-toggle {
-    display: none;
-    width: 44px;
-    height: 44px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    cursor: pointer;
-}
-
-.mobile-menu-toggle span {
-    width: 19px;
-    height: 2px;
-    border-radius: 3px;
-    background: white;
-}
-
+.mobile-menu-toggle,
 .mobile-navigation {
     display: none;
 }
 
 
-/* =========================
-   6. HERO SECTION
-========================= */
+/* 05. HERO SECTION
+========================================================= */
 
 .hero-section {
     position: relative;
     min-height: 690px;
     display: flex;
     align-items: center;
-    padding: 85px 0 100px;
     overflow: hidden;
+    padding: 75px 0 100px;
 }
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 50px;
+    gap: 45px;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 610px;
 }
 
 .hero-eyebrow,
@@ -429,8 +302,7 @@ ul {
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    margin-bottom: 23px;
-    color: var(--color-cyan);
+    color: var(--cyan);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -438,507 +310,442 @@ ul {
 }
 
 .eyebrow-star {
-    color: #f4c86a;
+    color: var(--pink);
     font-size: 17px;
-    animation: star-pulse 2s ease-in-out infinite;
 }
 
 .hero-content h1 {
     max-width: 650px;
-    margin-bottom: 25px;
-    color: var(--color-white);
+    margin: 24px 0;
     font-family: var(--font-heading);
-    font-size: clamp(46px, 5.5vw, 76px);
-    font-weight: 700;
+    font-size: clamp(46px, 6vw, 76px);
     line-height: 1.08;
     letter-spacing: -2.5px;
+    color: white;
 }
 
 .gradient-text {
-    color: transparent;
-    background: var(--gradient-main);
-    background-clip: text;
+    background: linear-gradient(100deg, #b58aff, #52d8ed, #ec79c7);
     -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-description {
     max-width: 510px;
-    margin-bottom: 33px;
-    color: var(--color-muted);
-    font-size: 17px;
+    margin-bottom: 32px;
+    color: var(--muted);
+    font-size: 16px;
     line-height: 1.85;
 }
 
 .hero-actions {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 35px;
+    flex-wrap: wrap;
 }
 
 .hero-social-proof {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--color-muted);
+    margin-top: 38px;
+    color: var(--muted);
     font-size: 13px;
 }
 
 .hero-proof-icon {
-    width: 35px;
-    height: 35px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(50, 200, 232, 0.25);
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    color: var(--color-cyan);
-    background: rgba(50, 200, 232, 0.1);
+    background: rgba(50, 200, 232, 0.12);
+    color: var(--cyan);
 }
 
 
-/* =========================
-   7. HERO GALAXY VISUAL
-========================= */
+/* 06. HERO GALAXY VISUAL
+========================================================= */
 
 .hero-visual {
     position: relative;
-    min-height: 490px;
+    min-height: 500px;
     display: grid;
     place-items: center;
+    isolation: isolate;
 }
 
 .hero-galaxy {
-    position: relative;
-    z-index: 2;
-    width: min(100%, 510px);
-    aspect-ratio: 1;
-    object-fit: contain;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(137, 78, 220, 0.28), transparent 55%),
+        radial-gradient(ellipse at 55% 45%, rgba(40, 170, 210, 0.13), transparent 65%);
     border-radius: 50%;
-    filter: drop-shadow(0 0 45px rgba(122, 72, 207, 0.35));
-    animation: galaxy-float 8s ease-in-out infinite;
 }
 
 .hero-orbit {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 1px solid rgba(169, 142, 255, 0.2);
+    border: 1px solid rgba(188, 165, 255, 0.25);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: rotate(-25deg);
 }
 
 .orbit-outer {
-    width: 95%;
-    height: 55%;
-    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 440px;
+    height: 230px;
 }
 
 .orbit-middle {
-    width: 78%;
-    height: 70%;
-    transform: translate(-50%, -50%) rotate(35deg);
+    width: 360px;
+    height: 190px;
+    transform: rotate(35deg);
+    border-color: rgba(50, 200, 232, 0.25);
 }
 
 .orbit-inner {
-    width: 60%;
-    height: 90%;
-    transform: translate(-50%, -50%) rotate(65deg);
+    width: 270px;
+    height: 270px;
+    border-style: dashed;
+    border-color: rgba(236, 121, 199, 0.25);
 }
 
 .hero-planet {
     position: absolute;
-    z-index: 3;
     border-radius: 50%;
-    box-shadow:
-        inset -12px -10px 22px rgba(0, 0, 0, 0.35),
-        0 0 35px rgba(120, 100, 255, 0.3);
+    box-shadow: inset -12px -12px 25px rgba(0, 0, 0, 0.35),
+                0 0 35px rgba(113, 57, 201, 0.25);
 }
 
 .hero-planet-one {
-    top: 12%;
-    right: 15%;
-    width: 58px;
-    height: 58px;
-    background: radial-gradient(circle at 30% 25%, #b5a3ff, #6942bb 70%);
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 25%, #e5a5ff, #803bc8 50%, #251050);
+    animation: float 7s ease-in-out infinite;
 }
 
 .hero-planet-two {
-    bottom: 16%;
-    left: 10%;
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle at 30% 25%, #8eeaff, #247eae 75%);
+    width: 48px;
+    height: 48px;
+    background: radial-gradient(circle at 30% 25%, #a1f3ff, #2185c6 65%, #12315b);
+    top: 15%;
+    right: 18%;
+    animation: float 6s ease-in-out infinite reverse;
 }
 
 .hero-planet-three {
-    top: 48%;
-    right: 2%;
-    width: 24px;
-    height: 24px;
-    background: radial-gradient(circle at 30% 25%, #ffc0e9, #c94b9b 75%);
+    width: 34px;
+    height: 34px;
+    background: radial-gradient(circle at 30% 25%, #ffb9e8, #d64c9c 70%, #662054);
+    bottom: 20%;
+    left: 15%;
+    animation: float 8s ease-in-out infinite;
 }
 
 .floating-language {
     position: absolute;
-    z-index: 4;
-    display: flex;
-    align-items: center;
-    gap: 9px;
     padding: 10px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    border-radius: 50px;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    background: rgba(20, 24, 55, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(16, 19, 46, 0.85);
     backdrop-filter: blur(12px);
+    font-size: 13px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: galaxy-float 6s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
 }
 
 .floating-language-one {
-    top: 17%;
+    top: 14%;
     left: 0;
 }
 
 .floating-language-two {
     right: 0;
-    bottom: 27%;
-    animation-delay: -2s;
+    top: 55%;
+    animation-delay: 1s;
 }
 
 .floating-language-three {
-    bottom: 5%;
-    left: 35%;
-    animation-delay: -4s;
+    bottom: 8%;
+    left: 40%;
+    animation-delay: 2s;
 }
 
 .hero-glow {
     position: absolute;
-    width: 70%;
-    height: 70%;
-    border-radius: 50%;
-    background: rgba(113, 57, 201, 0.15);
-    filter: blur(80px);
+    width: 300px;
+    height: 300px;
+    background: var(--purple);
+    opacity: 0.13;
+    filter: blur(100px);
+    z-index: -2;
 }
 
 .scroll-indicator {
     position: absolute;
     bottom: 25px;
     left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 5px;
-    color: var(--color-muted);
-    font-size: 10px;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transform: translateX(-50%);
 }
 
 .scroll-arrow {
-    color: var(--color-cyan);
-    font-size: 22px;
-    animation: arrow-bounce 1.5s infinite;
+    color: var(--cyan);
+    animation: bounce 1.8s infinite;
 }
 
 
-/* =========================
-   8. SECTION HEADINGS
-========================= */
+/* 07. SECTION HEADINGS
+========================================================= */
 
 .section-heading {
-    max-width: 700px;
+    max-width: 680px;
     margin: 0 auto 65px;
     text-align: center;
 }
 
 .section-heading h2 {
-    margin-bottom: 18px;
-    color: var(--color-white);
+    margin: 16px 0;
     font-family: var(--font-heading);
-    font-size: clamp(34px, 4vw, 48px);
-    font-weight: 700;
+    font-size: clamp(32px, 4vw, 48px);
     line-height: 1.2;
-    letter-spacing: -1.3px;
+    color: white;
 }
 
 .section-heading p {
-    max-width: 590px;
-    margin: 0 auto;
-    color: var(--color-muted);
-    font-size: 16px;
+    color: var(--muted);
+    font-size: 15px;
     line-height: 1.8;
 }
 
 
-/* =========================
-   9. LANGUAGE PLANETS
-========================= */
+/* 08. LANGUAGE PLANETS
+========================================================= */
 
 .languages-section {
     position: relative;
     overflow: hidden;
-    padding-top: 115px;
-    padding-bottom: 125px;
 }
 
 .language-universe {
     position: relative;
-    max-width: 1100px;
-    min-height: 410px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    min-height: 430px;
+    padding: 55px 30px;
+    display: flex;
     align-items: center;
-    justify-items: center;
-    gap: 65px 35px;
-    margin: 0 auto;
-    padding: 35px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 35px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 65px 55px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 30px;
     background:
-        radial-gradient(
-            ellipse at 50% 50%,
-            rgba(113, 57, 201, 0.13),
-            transparent 70%
-        ),
-        rgba(12, 15, 39, 0.42);
+        radial-gradient(ellipse at 50% 50%, rgba(92, 48, 153, 0.16), transparent 65%),
+        rgba(14, 16, 43, 0.45);
+    isolation: isolate;
 }
 
 .universe-stars {
     position: absolute;
     inset: 0;
-    overflow: hidden;
-    border-radius: inherit;
+    z-index: -1;
     pointer-events: none;
     background-image:
-        radial-gradient(1px 1px at 10% 20%, #ffffff, transparent),
-        radial-gradient(1px 1px at 80% 15%, #bcaaff, transparent),
-        radial-gradient(1.5px 1.5px at 55% 80%, #ffffff, transparent),
-        radial-gradient(1px 1px at 30% 70%, #7ce6ff, transparent),
-        radial-gradient(1px 1px at 90% 60%, #ffffff, transparent);
-    background-size: 100% 100%;
-    opacity: 0.65;
+        radial-gradient(1px 1px at 10% 20%, white 100%, transparent),
+        radial-gradient(2px 2px at 80% 30%, #bca5ff 100%, transparent),
+        radial-gradient(1px 1px at 60% 80%, white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 30% 70%, #32c8e8 100%, transparent);
+    background-size: 180px 160px;
+    opacity: 0.7;
 }
-
-/* Individual language planet */
 
 .planet-item {
     position: relative;
-    z-index: 2;
-    width: 100%;
+    width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 17px;
     text-align: center;
-    transition: transform var(--transition);
+    z-index: 1;
+    transition: transform 0.4s ease;
 }
 
 .planet-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
 }
 
 .planet-item:focus-visible {
-    outline: 2px solid var(--color-cyan);
+    outline: 2px solid var(--cyan);
     outline-offset: 8px;
-    border-radius: 20px;
+    border-radius: 18px;
 }
 
 .planet-orbit {
-    position: relative;
+    position: absolute;
+    top: 50px;
+    left: 50%;
     width: 175px;
-    height: 175px;
-    display: grid;
-    place-items: center;
+    height: 68px;
+    transform: translate(-50%, -50%) rotate(-28deg);
+    border: 1px solid rgba(188, 165, 255, 0.45);
     border-radius: 50%;
+    pointer-events: none;
+    transition: 0.5s ease;
 }
 
-.planet-orbit::before {
-    content: "";
-    position: absolute;
-    inset: 7px -8px;
-    border: 1px solid rgba(184, 165, 255, 0.35);
-    border-radius: 50%;
-    transform: rotate(-28deg);
-    transition: border-color var(--transition);
-}
-
-.planet-orbit::after {
-    content: "";
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    top: 15px;
-    right: 18px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 0 12px #ffffff;
-}
-
-.planet-item:hover .planet-orbit::before {
-    border-color: rgba(50, 200, 232, 0.7);
+.planet-item:hover .planet-orbit {
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.13);
+    border-color: var(--cyan);
 }
 
 .planet {
     position: relative;
-    width: 145px;
-    height: 145px;
+    width: 125px;
+    height: 125px;
     display: grid;
     place-items: center;
-    overflow: hidden;
     border-radius: 50%;
+    overflow: hidden;
     isolation: isolate;
     box-shadow:
-        inset -18px -17px 30px rgba(0, 0, 0, 0.4),
-        inset 8px 7px 20px rgba(255, 255, 255, 0.24),
-        0 0 25px rgba(125, 104, 255, 0.25);
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+        inset -17px -15px 25px rgba(0, 0, 0, 0.4),
+        inset 7px 7px 17px rgba(255, 255, 255, 0.25),
+        0 0 30px rgba(100, 100, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+/* Planet atmosphere and surface */
 
 .planet::before {
     content: "";
     position: absolute;
-    z-index: -1;
     inset: 0;
-    border-radius: 50%;
+    z-index: -1;
+    border-radius: inherit;
     background:
-        radial-gradient(
-            circle at 28% 23%,
-            rgba(255, 255, 255, 0.75),
-            transparent 16%
-        ),
-        radial-gradient(
-            ellipse at 70% 80%,
-            rgba(0, 0, 0, 0.3),
-            transparent 55%
-        );
+        radial-gradient(ellipse at 30% 22%, rgba(255,255,255,0.65), transparent 25%),
+        radial-gradient(ellipse at 75% 75%, rgba(0,0,0,0.4), transparent 50%);
 }
 
 .planet::after {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: 0;
+    inset: 12px -15px;
+    border: 2px solid rgba(255,255,255,0.14);
     border-radius: 50%;
-    opacity: 0.4;
-    background:
-        radial-gradient(
-            ellipse at 25% 55%,
-            rgba(255, 255, 255, 0.16),
-            transparent 28%
-        ),
-        radial-gradient(
-            ellipse at 75% 30%,
-            rgba(255, 255, 255, 0.12),
-            transparent 25%
-        );
+    transform: rotate(-30deg);
+    z-index: -1;
 }
 
 .planet-item:hover .planet {
-    transform: scale(1.09) rotate(5deg);
-    box-shadow:
-        inset -18px -17px 30px rgba(0, 0, 0, 0.35),
-        inset 8px 7px 20px rgba(255, 255, 255, 0.25),
-        0 0 40px rgba(125, 104, 255, 0.5);
+    transform: scale(1.12) rotate(5deg);
 }
 
-/* Planet colors */
+/* Individual planet colors */
 
 .planet-blue {
     background:
-        radial-gradient(circle at 35% 25%, #8ce9ff 0%, #328edb 35%, #164080 75%);
+        radial-gradient(circle at 32% 28%, #8feeff 0%, #299ddf 32%, #15518e 68%, #091b48 100%);
     box-shadow:
-        inset -18px -17px 30px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(50, 160, 255, 0.35);
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(50, 200, 232, 0.35);
 }
 
 .planet-orange {
     background:
-        radial-gradient(circle at 35% 25%, #ffe0a0 0%, #f28b42 38%, #9b3c28 78%);
+        radial-gradient(circle at 30% 25%, #ffe3a0 0%, #ff9c42 35%, #d34c21 70%, #64201e 100%);
+    box-shadow:
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(255, 146, 55, 0.3);
 }
 
 .planet-pink {
     background:
-        radial-gradient(circle at 35% 25%, #ffd2f0 0%, #df6ab6 38%, #762a82 80%);
+        radial-gradient(circle at 30% 25%, #ffd4f2 0%, #ee81d2 35%, #a43caa 70%, #42175d 100%);
+    box-shadow:
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(236, 121, 199, 0.35);
 }
 
 .planet-purple {
     background:
-        radial-gradient(circle at 35% 25%, #d4b8ff 0%, #8957d6 38%, #39206f 80%);
+        radial-gradient(circle at 30% 25%, #e5c5ff 0%, #a36bea 35%, #6431ae 70%, #29134e 100%);
+    box-shadow:
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(151, 103, 234, 0.35);
 }
 
 .planet-green {
     background:
-        radial-gradient(circle at 35% 25%, #c5ffb1 0%, #58b77b 38%, #1c654e 80%);
+        radial-gradient(circle at 30% 25%, #c6ffd9 0%, #4bcf9b 35%, #167b70 70%, #073c48 100%);
+    box-shadow:
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(75, 207, 155, 0.3);
 }
 
 .planet-cyan {
     background:
-        radial-gradient(circle at 35% 25%, #b6ffff 0%, #38bfc9 38%, #175d83 80%);
+        radial-gradient(circle at 30% 25%, #d1ffff 0%, #55d8e9 35%, #2188bd 70%, #12365f 100%);
+    box-shadow:
+        inset -17px -15px 25px rgba(0,0,0,0.4),
+        0 0 38px rgba(50, 200, 232, 0.35);
 }
-
-/* Flags in the center */
 
 .planet-flag {
     position: relative;
     z-index: 2;
-    display: block;
     font-size: 43px;
     line-height: 1;
-    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.3));
-    transition: transform var(--transition);
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.4));
+    transition: transform 0.4s ease;
 }
 
 .planet-item:hover .planet-flag {
     transform: scale(1.13);
 }
 
-/* Planet labels */
-
 .planet-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
 }
 
-.planet-info h3 {
-    color: var(--color-white);
+.planet-info strong {
     font-family: var(--font-heading);
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 600;
+    color: white;
 }
 
-.planet-info p {
-    color: var(--color-muted);
-    font-size: 13px;
+.planet-info span {
+    font-size: 12px;
+    color: var(--muted);
 }
 
 .universe-caption {
-    position: relative;
-    z-index: 2;
-    margin-top: 35px;
-    color: var(--color-muted);
-    font-size: 13px;
+    margin-top: 30px;
     text-align: center;
+    color: var(--muted);
+    font-size: 13px;
 }
 
 
-/* =========================
-   10. LEARNING SECTION
-========================= */
+/* 09. LEARNING SECTION
+========================================================= */
 
 .learning-section {
     position: relative;
-    background: linear-gradient(
-        180deg,
-        transparent,
-        rgba(23, 18, 57, 0.35),
-        transparent
-    );
 }
 
 .learning-grid {
@@ -949,86 +756,70 @@ ul {
 
 .learning-card {
     position: relative;
-    min-height: 255px;
-    padding: 30px 25px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: var(--radius-medium);
-    background: var(--color-space-card);
-    transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition);
-}
-
-.learning-card::before {
-    content: "";
-    position: absolute;
-    top: -70px;
-    right: -70px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: rgba(113, 57, 201, 0.12);
-    filter: blur(35px);
+    padding: 32px 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    transition: var(--transition);
 }
 
 .learning-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(167, 122, 255, 0.45);
-    background: rgba(28, 30, 68, 0.85);
+    border-color: rgba(50, 200, 232, 0.45);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
 }
 
 .learning-icon {
-    width: 58px;
-    height: 58px;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 22px;
     display: grid;
     place-items: center;
-    margin-bottom: 23px;
-    border-radius: 17px;
-    font-size: 27px;
+    border-radius: 16px;
+    font-size: 25px;
 }
 
 .icon-vocabulary {
-    color: #c2a4ff;
-    background: rgba(143, 92, 222, 0.18);
+    background: rgba(113, 57, 201, 0.2);
+    color: #b58aff;
 }
 
 .icon-listening {
-    color: #7be8ff;
     background: rgba(50, 200, 232, 0.15);
+    color: var(--cyan);
 }
 
 .icon-speaking {
-    color: #ff9cdb;
     background: rgba(236, 121, 199, 0.15);
+    color: var(--pink);
 }
 
 .icon-quiz {
-    color: #a9f1bd;
-    background: rgba(94, 204, 133, 0.15);
+    background: rgba(255, 184, 92, 0.15);
+    color: #ffbd70;
 }
 
 .learning-card h3 {
-    margin-bottom: 11px;
-    color: var(--color-white);
+    margin-bottom: 12px;
+    color: white;
     font-family: var(--font-heading);
     font-size: 20px;
 }
 
 .learning-card p {
-    color: var(--color-muted);
+    color: var(--muted);
     font-size: 14px;
-    line-height: 1.75;
+    line-height: 1.8;
 }
 
 
-/* =========================
-   11. LEARNING JOURNEY
-========================= */
+/* 10. JOURNEY SECTION
+========================================================= */
 
 .journey-section {
-    position: relative;
+    background: linear-gradient(180deg, transparent, rgba(113, 57, 201, 0.055), transparent);
 }
 
 .journey-grid {
@@ -1040,262 +831,222 @@ ul {
 .journey-card {
     position: relative;
     padding: 35px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-medium);
-    background: rgba(18, 21, 50, 0.7);
-    transition: transform var(--transition), border-color var(--transition);
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.035);
+    transition: var(--transition);
 }
 
 .journey-card:hover {
+    border-color: var(--purple-light);
     transform: translateY(-7px);
-    border-color: rgba(50, 200, 232, 0.35);
 }
 
 .journey-number {
     position: absolute;
-    top: 20px;
-    right: 25px;
-    color: rgba(167, 122, 255, 0.2);
+    top: 18px;
+    right: 22px;
+    color: rgba(255,255,255,0.17);
     font-family: var(--font-heading);
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 700;
 }
 
 .journey-icon {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 22px;
     display: grid;
     place-items: center;
-    margin-bottom: 24px;
-    border: 1px solid rgba(167, 122, 255, 0.2);
-    border-radius: 18px;
-    color: var(--color-purple-light);
-    background: rgba(113, 57, 201, 0.15);
-    font-size: 26px;
+    border-radius: 50%;
+    color: white;
+    font-size: 27px;
+    background: linear-gradient(135deg, var(--purple), #3b85d5);
+    box-shadow: 0 0 30px rgba(113,57,201,0.25);
 }
 
 .journey-card h3 {
     margin-bottom: 12px;
-    color: var(--color-white);
+    color: white;
     font-family: var(--font-heading);
     font-size: 21px;
 }
 
 .journey-card p {
-    color: var(--color-muted);
+    color: var(--muted);
     font-size: 14px;
+    line-height: 1.8;
 }
 
 
-/* =========================
-   12. ABOUT SECTION
-========================= */
-
-.about-section {
-    overflow: hidden;
-    background: linear-gradient(
-        90deg,
-        rgba(22, 17, 52, 0.35),
-        transparent
-    );
-}
+/* 11. ABOUT SECTION
+========================================================= */
 
 .about-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
-    gap: 90px;
+    gap: 80px;
 }
 
 .about-visual {
     position: relative;
-    min-height: 420px;
+    min-height: 390px;
     display: grid;
     place-items: center;
 }
 
 .about-orbit {
     position: absolute;
-    border: 1px solid rgba(167, 122, 255, 0.24);
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(188, 165, 255, 0.3);
     border-radius: 50%;
 }
 
 .about-orbit-one {
-    width: 340px;
-    height: 340px;
-    transform: rotate(25deg);
+    transform: rotate(35deg) scaleX(1.4);
 }
 
 .about-orbit-two {
-    width: 270px;
-    height: 400px;
-    transform: rotate(-35deg);
+    transform: rotate(-35deg) scaleX(1.4);
+    border-color: rgba(50, 200, 232, 0.25);
 }
 
 .about-planet {
-    position: relative;
-    width: 190px;
-    height: 190px;
+    width: 145px;
+    height: 145px;
     border-radius: 50%;
-    background:
-        radial-gradient(circle at 30% 25%, #d9b7ff, #8650d1 40%, #2a185d 85%);
-    box-shadow:
-        inset -20px -20px 35px rgba(0, 0, 0, 0.4),
-        0 0 70px rgba(113, 57, 201, 0.4);
+    background: radial-gradient(circle at 30% 25%, #d6b8ff, #7839c8 55%, #24104c);
+    box-shadow: inset -15px -15px 30px rgba(0,0,0,0.4),
+                0 0 60px rgba(113,57,201,0.4);
+    animation: float 7s ease-in-out infinite;
 }
 
 .about-floating-star {
     position: absolute;
-    color: #f6d889;
-    font-size: 25px;
-    text-shadow: 0 0 15px rgba(246, 216, 137, 0.8);
+    color: var(--cyan);
+    font-size: 27px;
 }
 
 .star-one {
-    top: 15%;
-    right: 20%;
+    top: 12%;
+    left: 15%;
 }
 
 .star-two {
-    bottom: 18%;
-    left: 15%;
-    font-size: 18px;
+    right: 10%;
+    top: 30%;
+    color: var(--pink);
 }
 
 .star-three {
-    top: 45%;
-    left: 8%;
-    font-size: 14px;
-}
-
-.about-content {
-    max-width: 520px;
+    bottom: 15%;
+    left: 25%;
+    color: #ffcf84;
 }
 
 .about-content h2 {
-    margin-bottom: 23px;
-    color: var(--color-white);
+    margin: 18px 0;
     font-family: var(--font-heading);
-    font-size: clamp(34px, 4vw, 47px);
+    font-size: clamp(34px, 4vw, 48px);
     line-height: 1.2;
+    color: white;
 }
 
 .about-content p {
-    margin-bottom: 17px;
-    color: var(--color-muted);
+    margin-bottom: 18px;
+    color: var(--muted);
     font-size: 15px;
     line-height: 1.9;
 }
 
-.about-content .btn {
-    margin-top: 15px;
-}
 
-
-/* =========================
-   13. CALL TO ACTION
-========================= */
+/* 12. CTA SECTION
+========================================================= */
 
 .cta-section {
-    padding: 90px 0 120px;
+    padding: 80px 0 110px;
 }
 
 .cta-card {
     position: relative;
-    padding: 75px 35px;
     overflow: hidden;
-    border: 1px solid rgba(185, 151, 255, 0.23);
+    padding: 75px 30px;
+    text-align: center;
+    border: 1px solid rgba(188, 165, 255, 0.25);
     border-radius: 32px;
     background:
-        radial-gradient(
-            ellipse at 50% 120%,
-            rgba(50, 200, 232, 0.16),
-            transparent 55%
-        ),
-        linear-gradient(
-            130deg,
-            rgba(91, 42, 155, 0.45),
-            rgba(23, 29, 72, 0.85)
-        );
-    text-align: center;
+        radial-gradient(ellipse at 50% 120%, rgba(113, 57, 201, 0.5), transparent 65%),
+        linear-gradient(120deg, rgba(39, 32, 87, 0.9), rgba(20, 35, 72, 0.95));
 }
 
 .cta-card h2 {
     position: relative;
-    z-index: 2;
-    max-width: 700px;
-    margin: 0 auto 18px;
-    color: white;
+    margin-bottom: 17px;
     font-family: var(--font-heading);
-    font-size: clamp(34px, 4.5vw, 50px);
-    line-height: 1.2;
+    font-size: clamp(32px, 4vw, 49px);
+    color: white;
 }
 
 .cta-card p {
     position: relative;
-    z-index: 2;
-    max-width: 550px;
+    max-width: 580px;
     margin: 0 auto 30px;
-    color: #c4c5df;
-    font-size: 16px;
+    color: #c3c1dc;
+    font-size: 15px;
 }
 
 .cta-card .btn {
     position: relative;
-    z-index: 2;
 }
 
 .cta-stars {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.6;
     background-image:
-        radial-gradient(2px 2px at 15% 25%, #fff, transparent),
-        radial-gradient(1px 1px at 80% 20%, #fff, transparent),
-        radial-gradient(2px 2px at 65% 75%, #d3c0ff, transparent),
-        radial-gradient(1px 1px at 30% 80%, #fff, transparent);
+        radial-gradient(2px 2px at 15% 25%, white 100%, transparent),
+        radial-gradient(1px 1px at 85% 20%, white 100%, transparent),
+        radial-gradient(1.5px 1.5px at 70% 75%, #bca5ff 100%, transparent),
+        radial-gradient(2px 2px at 30% 80%, #32c8e8 100%, transparent);
 }
 
 .cta-glow {
     position: absolute;
-    bottom: -160px;
-    left: 50%;
-    width: 500px;
+    width: 250px;
     height: 250px;
-    border-radius: 50%;
-    background: rgba(113, 57, 201, 0.25);
-    filter: blur(70px);
+    top: -150px;
+    left: 50%;
     transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--purple);
+    filter: blur(90px);
+    opacity: 0.5;
 }
 
 
-/* =========================
-   14. FOOTER
-========================= */
+/* 13. FOOTER
+========================================================= */
 
 .site-footer {
-    position: relative;
-    padding: 75px 0 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(6, 8, 25, 0.7);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(5, 7, 23, 0.7);
 }
 
 .footer-main {
     display: grid;
-    grid-template-columns: 1.7fr 1fr 1fr 1fr;
-    gap: 55px;
-    padding-bottom: 55px;
-}
-
-.footer-brand {
-    max-width: 290px;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding: 75px 0 60px;
 }
 
 .footer-brand p {
+    max-width: 260px;
     margin-top: 18px;
-    color: var(--color-muted);
-    font-size: 14px;
+    color: var(--muted);
+    font-size: 13px;
     line-height: 1.8;
 }
 
@@ -1306,26 +1057,24 @@ ul {
 }
 
 .footer-socials a {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--border);
     border-radius: 50%;
-    color: var(--color-muted);
-    font-size: 13px;
+    color: var(--muted);
     transition: var(--transition);
 }
 
 .footer-socials a:hover {
     color: white;
-    border-color: var(--color-purple-light);
-    background: rgba(113, 57, 201, 0.2);
-    transform: translateY(-3px);
+    border-color: var(--cyan);
+    background: rgba(50,200,232,0.1);
 }
 
-.footer-column h3 {
-    margin-bottom: 21px;
+.footer-column h4 {
+    margin-bottom: 20px;
     color: white;
     font-family: var(--font-heading);
     font-size: 16px;
@@ -1335,142 +1084,101 @@ ul {
     display: block;
     width: fit-content;
     margin-bottom: 12px;
-    color: var(--color-muted);
+    color: var(--muted);
     font-size: 13px;
-    transition: color var(--transition);
+    transition: var(--transition);
 }
 
 .footer-column a:hover {
-    color: var(--color-cyan);
+    color: var(--cyan);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
-    padding-top: 23px;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-top: 1px solid rgba(255,255,255,0.07);
 }
 
 .footer-bottom-content {
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    color: #777b9e;
+    color: var(--muted);
     font-size: 12px;
 }
 
 
-/* =========================
-   15. ANIMATIONS
-========================= */
+/* 14. ANIMATIONS
+========================================================= */
 
-@keyframes stars-drift {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 320px 180px;
-    }
-}
-
-@keyframes stars-twinkle {
-    from {
-        opacity: 0.2;
-    }
-
-    to {
-        opacity: 0.65;
-    }
-}
-
-@keyframes star-pulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.55;
-        transform: scale(1.2);
-    }
-}
-
-@keyframes galaxy-float {
+@keyframes float {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
-        transform: translateY(-13px);
+        transform: translateY(-15px);
     }
 }
 
-@keyframes arrow-bounce {
+@keyframes bounce {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(7px);
     }
 }
 
 
-/* =========================
-   16. RESPONSIVE — TABLETS
-========================= */
+/* 15. RESPONSIVE — TABLETS
+========================================================= */
 
-@media (max-width: 1024px) {
-    :root {
-        --header-height: 78px;
+@media (max-width: 1000px) {
+    .main-navigation {
+        gap: 17px;
     }
 
-    .main-navigation {
-        gap: 20px;
+    .nav-link {
+        font-size: 12px;
     }
 
     .hero-container {
-        gap: 25px;
-    }
-
-    .hero-content h1 {
-        font-size: 57px;
+        gap: 20px;
     }
 
     .hero-visual {
-        min-height: 400px;
+        min-height: 420px;
     }
 
     .learning-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .about-container {
-        gap: 45px;
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .footer-main {
-        grid-template-columns: 1.5fr 1fr 1fr;
+    .about-container {
         gap: 35px;
     }
 
-    .footer-brand {
-        grid-column: 1 / -1;
+    .language-universe {
+        gap: 55px 35px;
     }
 }
 
 
-/* =========================
-   17. RESPONSIVE — MOBILE
-========================= */
+/* 16. RESPONSIVE — MOBILE
+========================================================= */
 
-@media (max-width: 768px) {
-    .container {
-        width: min(100% - 36px, var(--container-width));
+@media (max-width: 760px) {
+    .section-padding {
+        padding: 75px 0;
     }
 
-    .section-padding {
-        padding: 80px 0;
+    .header-container {
+        min-height: 72px;
     }
 
     .main-navigation,
@@ -1480,79 +1188,104 @@ ul {
 
     .mobile-menu-toggle {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 43px;
+        height: 43px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: white;
+        background: rgba(255,255,255,0.06);
+        cursor: pointer;
     }
 
     .mobile-navigation {
+        display: none;
         position: absolute;
-        top: var(--header-height);
+        top: 100%;
         left: 0;
         right: 0;
-        z-index: 1000;
-        display: none;
-        flex-direction: column;
-        gap: 20px;
-        padding: 25px 24px 30px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 22px 5% 28px;
         background: rgba(9, 11, 32, 0.97);
+        border-bottom: 1px solid var(--border);
         backdrop-filter: blur(20px);
     }
 
-    /* JS can toggle this class to show the menu */
     .mobile-navigation.active {
         display: flex;
+        flex-direction: column;
+        gap: 18px;
     }
 
     .mobile-navigation .nav-link {
-        padding: 8px 0;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .mobile-navigation-actions {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 12px;
-        padding-top: 10px;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
     }
 
     .hero-section {
         min-height: auto;
-        padding: 75px 0 90px;
+        padding: 75px 0 100px;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .hero-content {
-        max-width: 100%;
         text-align: center;
     }
 
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .hero-content h1 {
-        max-width: 600px;
-        margin-inline: auto;
-        font-size: clamp(42px, 9vw, 60px);
+        font-size: clamp(42px, 10vw, 60px);
         letter-spacing: -1.8px;
     }
 
     .hero-description {
-        margin-inline: auto;
-        font-size: 15px;
+        font-size: 14px;
     }
 
-    .hero-actions,
     .hero-social-proof {
         justify-content: center;
     }
 
     .hero-visual {
-        min-height: 380px;
-        margin-top: 10px;
+        min-height: 390px;
+        margin-top: 20px;
     }
 
-    .hero-galaxy {
-        width: min(85%, 390px);
+    .orbit-outer {
+        width: 330px;
+        height: 180px;
+    }
+
+    .orbit-middle {
+        width: 290px;
+        height: 150px;
+    }
+
+    .orbit-inner {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-planet-one {
+        width: 145px;
+        height: 145px;
+    }
+
+    .floating-language {
+        font-size: 11px;
+        padding: 8px 11px;
     }
 
     .scroll-indicator {
@@ -1560,153 +1293,18 @@ ul {
     }
 
     .section-heading {
-        margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-        font-size: 36px;
+        margin-bottom: 42px;
     }
 
     .language-universe {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 45px 15px;
-        padding: 40px 12px;
-    }
-
-    .planet-orbit {
-        width: 150px;
-        height: 150px;
-    }
-
-    .planet {
-        width: 125px;
-        height: 125px;
-    }
-
-    .planet-flag {
-        font-size: 37px;
-    }
-
-    .learning-grid {
-        gap: 15px;
-    }
-
-    .learning-card {
-        min-height: 235px;
-        padding: 25px 20px;
-    }
-
-    .journey-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .journey-card {
-        padding: 28px;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .about-visual {
-        min-height: 350px;
-        order: 2;
-    }
-
-    .about-content {
-        max-width: 100%;
-        text-align: center;
-        order: 1;
-    }
-
-    .cta-section {
-        padding: 65px 0 85px;
-    }
-
-    .cta-card {
-        padding: 60px 25px;
-    }
-
-    .footer-main {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px 25px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    .footer-bottom-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-
-/* =========================
-   18. RESPONSIVE — SMALL PHONES
-========================= */
-
-@media (max-width: 480px) {
-    .container {
-        width: calc(100% - 32px);
-    }
-
-    .logo-name {
-        font-size: 22px;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-eyebrow,
-    .section-eyebrow {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
-    }
-
-    .hero-visual {
-        min-height: 310px;
-    }
-
-    .floating-language {
-        padding: 8px 11px;
-        font-size: 10px;
-    }
-
-    .floating-language-one {
-        left: -5px;
-    }
-
-    .floating-language-two {
-        right: -5px;
-    }
-
-    .language-universe {
-        gap: 35px 5px;
-        padding: 35px 5px;
+        padding: 45px 15px;
+        gap: 50px 20px;
         border-radius: 22px;
     }
 
-    .planet-orbit {
-        width: 125px;
-        height: 125px;
-    }
-
-    .planet-orbit::before {
-        inset: 6px -5px;
+    .planet-item {
+        width: 120px;
+        gap: 13px;
     }
 
     .planet {
@@ -1714,71 +1312,150 @@ ul {
         height: 105px;
     }
 
+    .planet-orbit {
+        top: 43px;
+        width: 145px;
+        height: 58px;
+    }
+
     .planet-flag {
-        font-size: 32px;
+        font-size: 35px;
     }
 
-    .planet-info h3 {
-        font-size: 16px;
+    .planet-info strong {
+        font-size: 15px;
     }
 
-    .planet-info p {
-        font-size: 11px;
+    .learning-grid {
+        gap: 15px;
+    }
+
+    .learning-card {
+        padding: 25px 19px;
+    }
+
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about-visual {
+        min-height: 320px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .cta-card {
+        padding: 55px 22px;
+    }
+
+    .footer-main {
+        gap: 35px 25px;
+    }
+
+    .footer-bottom-content {
+        padding: 18px 0;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+/* 17. RESPONSIVE — SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+    .container {
+        width: 90%;
+    }
+
+    .logo-name {
+        font-size: 22px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-visual {
+        min-height: 320px;
+    }
+
+    .hero-planet-one {
+        width: 120px;
+        height: 120px;
+    }
+
+    .orbit-outer {
+        width: 280px;
+    }
+
+    .orbit-middle {
+        width: 240px;
+    }
+
+    .orbit-inner {
+        width: 185px;
+        height: 185px;
+    }
+
+    .language-universe {
+        gap: 42px 8px;
+        padding-inline: 8px;
+    }
+
+    .planet-item {
+        width: 105px;
+    }
+
+    .planet {
+        width: 92px;
+        height: 92px;
+    }
+
+    .planet-orbit {
+        top: 39px;
+        width: 125px;
+        height: 52px;
+    }
+
+    .planet-flag {
+        font-size: 31px;
     }
 
     .learning-grid {
         grid-template-columns: 1fr;
     }
 
-    .learning-card {
-        min-height: auto;
-    }
-
-    .about-visual {
-        min-height: 290px;
-    }
-
-    .about-orbit-one {
-        width: 250px;
-        height: 250px;
-    }
-
-    .about-orbit-two {
-        width: 200px;
-        height: 300px;
-    }
-
-    .about-planet {
-        width: 145px;
-        height: 145px;
-    }
-
     .footer-main {
         grid-template-columns: 1fr 1fr;
-        gap: 30px 15px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    .footer-column h3 {
-        font-size: 14px;
-    }
-
-    .footer-column a {
-        font-size: 12px;
+        gap: 35px 20px;
     }
 }
 
 
-/* =========================
-   19. ACCESSIBILITY
-========================= */
+/* 18. ACCESSIBILITY
+========================================================= */
 
-a:focus-visible,
-button:focus-visible {
-    outline: 2px solid var(--color-cyan);
+:focus-visible {
+    outline: 2px solid var(--cyan);
     outline-offset: 4px;
 }
 
