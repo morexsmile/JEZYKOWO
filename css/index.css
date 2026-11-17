@@ -1672,3 +1672,8 @@ img {
     }
 }
 
+/* Hide text behind / below language planets */
+.universe-caption {
+    display: none !important;
+}
+
