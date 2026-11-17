@@ -1711,3 +1711,32 @@ img {
     background: linear-gradient(135deg, #7139c9, #ec79c7);
     box-shadow: 0 0 35px rgba(113, 57, 201, 0.5);
 }
+
+/* FOOTER SOCIAL ICONS */
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-socials a {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #32C8E8;
+    border-color: #32C8E8;
+    background: rgba(50, 200, 232, 0.1);
+    transform: translateY(-4px);
+}
