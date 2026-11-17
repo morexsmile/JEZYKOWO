@@ -1677,3 +1677,37 @@ img {
     display: none !important;
 }
 
+/* HERO — BEZ GALAKTYKI I NAPISÓW */
+
+.hero-galaxy,
+.floating-language {
+    display: none !important;
+}
+
+/* Latające planety */
+.hero-planet {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: transparent;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.hero-planet-one {
+    background: linear-gradient(135deg, #253b9e, #32c8e8);
+    box-shadow: 0 0 35px rgba(50, 200, 232, 0.5);
+}
+
+.hero-planet-two {
+    background: linear-gradient(135deg, #d62828, #f7c843);
+    box-shadow: 0 0 35px rgba(236, 121, 199, 0.5);
+}
+
+.hero-planet-three {
+    background: linear-gradient(135deg, #7139c9, #ec79c7);
+    box-shadow: 0 0 35px rgba(113, 57, 201, 0.5);
+}
